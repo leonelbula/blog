@@ -13,11 +13,11 @@ class CrearTablaUsersRoles extends Migration
      */
     public function up()
     {
-        Schema::create('users_roles', function (Blueprint $table) {
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id','fk-users_rol_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('restrict');
+        Schema::create('usuarios_roles', function (Blueprint $table) {
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id', 'fk-usuarios_roles-usuario')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('restrict');
             $table->unsignedBigInteger('roles_id');
-            $table->foreign('roles_id','fk_users_rol')->references('id')->on('roles') ->onDelete('cascade')->onUpdate('restrict');
+            $table->foreign('roles_id', 'fk_usuario_rol')->references('id')->on('roles')->onDelete('cascade')->onUpdate('restrict');
         });
     }
 
@@ -28,6 +28,6 @@ class CrearTablaUsersRoles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_roles');
+        Schema::dropIfExists('usuarios_roles');
     }
 }

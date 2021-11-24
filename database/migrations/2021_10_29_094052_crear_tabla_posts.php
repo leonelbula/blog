@@ -15,11 +15,11 @@ class CrearTablaPosts extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id','fk_post_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('restrict');
-            $table->string('titulo',150);
-            $table->string('slug',150)->unique();
-            $table->string('descripcion',255);
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id', 'fk_post_usuario')->references('id')->on('usuarios')->onDelete('cascade')->onUpdate('restrict');
+            $table->string('titulo', 150);
+            $table->string('slug', 150)->unique();
+            $table->string('descripcion', 255);
             $table->text('contenido');
             $table->boolean('estado')->default(1);
             $table->timestamps();
